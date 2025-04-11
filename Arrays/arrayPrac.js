@@ -1,27 +1,21 @@
-const arr = [2, 3, 4, 6, 7, 8, 13, 18, 22, 23];
-// let even = arr.filter((val) => val % 2 === 0);
-// let odd = arr.filter((val) => val % 2 !== 0);
-
-// let even = [];
-// let odd = [];
-
-// arr.forEach((val) => {
-//   if (val % 2 === 0) {
-//     even.push(val);
-//   } else {
-//     odd.push(val);
-//   }
-// });
-
-let even = arr.map((val) => {
-  if (val % 2 === 0) {
-    return val;
+function symmetric(low, high) {
+  let result = [];
+  for (let i = low; i <= high; i++) {
+    if (i.toString().length % 2 === 0) {
+      result.push(i);
+    }
   }
-});
-let odd = arr.map((val) => {
-  if (val % 2 !== 0) {
-    return val;
-  }
-});
-console.log(even);
-console.log(odd);
+  // filter out symmetrics
+
+  return result.filter((val) => {
+    newVal = val.toString();
+    let mid = Math.floor(newVal.length / 2);
+    let firstPart = newVal.slice(0, mid);
+    let secondPart = newVal.slice(mid + 1, val.length);
+
+    Number(firstPart);
+  });
+}
+
+let result = symmetric(1, 100);
+console.log(result);
